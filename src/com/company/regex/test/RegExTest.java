@@ -2,7 +2,7 @@ package com.company.regex.test;
 
 import com.company.regex.entity.RegEx;
 import com.company.regex.entity.TextForRegEx;
-import com.company.regex.operation.RegExOperations;
+import com.company.regex.operation.RegExFindOperation;
 import com.company.regex.operation.RegExReplaceOperation;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class RegExTest {
     public void checkFind() {
         var regularExpression = new RegEx(SEARCH_REGULAR_EXPRESSION_EXAMPLE);
         var textForRegularExpression = new TextForRegEx(TEXT_FOR_REG_EX_EXAMPLE);
-        assertEquals("Найдено совпадение: [rOrkO---2482", RegExOperations.find(regularExpression, textForRegularExpression));
+        assertEquals("Найдено совпадение: [rOrkO---2482", RegExFindOperation.find(regularExpression, textForRegularExpression));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class RegExTest {
         System.out.println("2 - Замена");
         switch (scanner.nextByte()) {
             case 1:
-                System.out.println(RegExOperations.findFromConsole());
+                System.out.println(RegExFindOperation.findFromConsole());
                 break;
             case 2:
                 System.out.println(RegExReplaceOperation.replaceFromConsole());

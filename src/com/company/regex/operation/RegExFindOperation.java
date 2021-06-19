@@ -5,12 +5,12 @@ import com.company.regex.entity.TextForRegEx;
 
 import java.util.regex.Pattern;
 
-public class RegExOperations {
+public class RegExFindOperation {
 
     //    Находит все группы, вне зависимости от преобразования регистра
 //    private static final String FIND_UPPERCASE_IN_GROUP_CONSTRUCTION = "(?:\\\\U)?([\\\\$]\\d)(?:\\\\E)?";
 
-    protected RegExOperations() {
+    protected RegExFindOperation() {
         //Устранение нарушения правила SonarLint (java:S1118)
         throw new IllegalStateException("Utility class");
     }

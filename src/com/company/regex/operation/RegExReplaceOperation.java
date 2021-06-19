@@ -7,7 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class RegExReplaceOperation extends RegExOperations {
+import static com.company.regex.operation.RegExFindOperation.find;
+
+public class RegExReplaceOperation {
 
     //    private static final String FIND_GROUP = "[\\$]\\d";
 //    private static final String FIND_GROUP_NUMBER = "[\\$](\\d)";
