@@ -11,30 +11,10 @@ import java.util.Scanner;
 import static org.junit.Assert.assertEquals;
 
 public class RegExTest {
-    private static final String SEARCH_REGULAR_EXPRESSION_EXAMPLE = "^\\[?(\\w{5})(?:\\-{1,5})(\\d{3,4})\\]?";
-    private static final String TEXT_FOR_REG_EX_EXAMPLE = "[rOrkO---2482 Рефакторинг автоскролла bfb7dbcf";
-    private static final String REPLACE_REGULAR_EXPRESSION_LOWERCASE_EXAMPLE = "\\[\\L$1\\E\\-$2\\]";
-    private static final String REPLACE_REGULAR_EXPRESSION_UPPERCASE_EXAMPLE = "\\[\\U$1\\E\\-$2\\]";
-
-    @Test
-    public void checkFind() {
-        var regularExpression = new RegEx(SEARCH_REGULAR_EXPRESSION_EXAMPLE);
-        var textForRegularExpression = new TextForRegEx(TEXT_FOR_REG_EX_EXAMPLE);
-        assertEquals("Найдено совпадение: [rOrkO---2482", RegExFindOperation.find(regularExpression, textForRegularExpression));
-    }
-
-    @Test
-    public void checkReplace() {
-        final var searchRegularExpression = new RegEx(SEARCH_REGULAR_EXPRESSION_EXAMPLE);
-        final var textForRegularExpression = new TextForRegEx(TEXT_FOR_REG_EX_EXAMPLE);
-        final var replaceCaseRegularExpression = new RegEx(REPLACE_REGULAR_EXPRESSION_LOWERCASE_EXAMPLE);
-        assertEquals("[rorko-2482] Рефакторинг автоскролла bfb7dbcf",
-                RegExReplaceOperation.replace(searchRegularExpression, textForRegularExpression, replaceCaseRegularExpression, false));
-        replaceCaseRegularExpression.setRegularExpression(REPLACE_REGULAR_EXPRESSION_UPPERCASE_EXAMPLE);
-        assertEquals("[RORKO-2482] Рефакторинг автоскролла bfb7dbcf",
-                RegExReplaceOperation.replace(searchRegularExpression, textForRegularExpression, replaceCaseRegularExpression, false));
-
-    }
+    private static final RegEx SEARCH_REGULAR_EXPRESSION_EXAMPLE = new RegEx("^\\[?(\\w{5})(?:\\-{1,5})(\\d{3,4})\\]?");
+    private static final TextForRegEx TEXT_FOR_REG_EX_EXAMPLE = new TextForRegEx("[rOrkO---2482 Рефакторинг автоскролла bfb7dbcf");
+    private static final RegEx REPLACE_REGULAR_EXPRESSION_LOWERCASE_EXAMPLE = new RegEx("\\[\\L$1\\E\\-$2\\]");
+    private static final RegEx REPLACE_REGULAR_EXPRESSION_UPPERCASE_EXAMPLE = new RegEx("\\[\\U$1\\E\\-$2\\]");
 
     public static void checkFromConsole() {
         var scanner = new Scanner(System.in);
@@ -51,5 +31,34 @@ public class RegExTest {
             default:
                 System.out.println("Операция для проверки не распознана. Завершение работы приложения");
         }
+    }
+
+    @Test
+    public void checkFind() {
+        assertEquals("Найдено совпадение: [rOrkO---2482",
+                RegExFindOperation.find(
+                        SEARCH_REGULAR_EXPRESSION_EXAMPLE,
+                        TEXT_FOR_REG_EX_EXAMPLE));
+    }
+
+    @Test
+    public void checkReplace_toLowerCase() {
+        assertEquals("[rorko-2482] Рефакторинг автоскролла bfb7dbcf",
+                RegExReplaceOperation.replace(
+                        SEARCH_REGULAR_EXPRESSION_EXAMPLE,
+                        TEXT_FOR_REG_EX_EXAMPLE,
+                        REPLACE_REGULAR_EXPRESSION_LOWERCASE_EXAMPLE,
+                        false));
+
+    }
+
+    @Test
+    public void checkReplace_toUpperCase(){
+        assertEquals("[RORKO-2482] Рефакторинг автоскролла bfb7dbcf",
+                RegExReplaceOperation.replace(
+                        SEARCH_REGULAR_EXPRESSION_EXAMPLE,
+                        TEXT_FOR_REG_EX_EXAMPLE,
+                        REPLACE_REGULAR_EXPRESSION_UPPERCASE_EXAMPLE,
+                        false));
     }
 }
