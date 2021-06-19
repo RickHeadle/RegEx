@@ -11,8 +11,6 @@ import static com.company.regex.operation.RegExFindOperation.find;
 
 public class RegExReplaceOperation {
 
-    //    private static final String FIND_GROUP = "[\\$]\\d";
-//    private static final String FIND_GROUP_NUMBER = "[\\$](\\d)";
     private static final String FIND_GROUP_NUMBER_WITH_UPPERCASE = "\\\\U[\\\\$](\\d)\\\\E";
     private static final String FIND_GROUP_NUMBER_WITH_LOWERCASE = "\\\\L[\\\\$](\\d)\\\\E";
     private static final String REPLACE_IN_GROUP_CONSTRUCTION = "\\$1";

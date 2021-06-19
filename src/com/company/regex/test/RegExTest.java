@@ -53,7 +53,7 @@ public class RegExTest {
     }
 
     @Test
-    public void checkReplace_toUpperCase(){
+    public void checkReplace_toUpperCase() {
         assertEquals("[RORKO-2482] Рефакторинг автоскролла bfb7dbcf",
                 RegExReplaceOperation.replace(
                         SEARCH_REGULAR_EXPRESSION_EXAMPLE,
