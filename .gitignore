@@ -32,5 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-###Project Libraries###
-/lib/
+### Project Libraries ###
+/lib
+### Output Directory ###
+/out
