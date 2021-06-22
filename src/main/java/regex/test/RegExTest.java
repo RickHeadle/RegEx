@@ -1,6 +1,7 @@
 package regex.test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import regex.entity.RegEx;
 import regex.entity.TextForRegEx;
@@ -15,6 +16,8 @@ public class RegExTest {
     private static final RegEx REPLACE_REGULAR_EXPRESSION_LOWERCASE_EXAMPLE = new RegEx("\\[\\L$1\\E\\-$2\\]");
     private static final RegEx REPLACE_REGULAR_EXPRESSION_UPPERCASE_EXAMPLE = new RegEx("\\[\\U$1\\E\\-$2\\]");
 
+    @Disabled
+    @Test
     public static void checkFromConsole() {
         var scanner = new Scanner(System.in);
         System.out.println("Введите номер операции для проверки: ");
@@ -34,7 +37,7 @@ public class RegExTest {
 
     @Test
     public void checkFind() {
-        Assertions.assertEquals("Найдено совпадение: [rOrkO---2482",
+        Assertions.assertEquals("Найдено совпадение: '[rOrkO---2482'",
                 RegExFindOperation.find(
                         SEARCH_REGULAR_EXPRESSION_EXAMPLE,
                         TEXT_FOR_REG_EX_EXAMPLE));

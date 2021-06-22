@@ -4,6 +4,7 @@ import regex.entity.RegEx;
 import regex.entity.TextForRegEx;
 
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 public class RegExFindOperation {
 
@@ -36,11 +37,18 @@ public class RegExFindOperation {
     }
 
     public static String find(RegEx regularExpression, TextForRegEx textForRegularExpression, int groupNumber, boolean isPrettyOutputRequired) {
-        var pattern = Pattern.compile(regularExpression.getRegularExpression());
+        Pattern pattern;
+        try {
+            pattern = Pattern.compile(regularExpression.getRegularExpression());
+        } catch (PatternSyntaxException patternSyntaxException) {
+            //В случае, если введен некорректный паттерн, он будет преобразован в паттерн поиска пустого значения.
+            //Не уверен что это правильное решение, возможно впоследствии будет изменено.
+            pattern = Pattern.compile("^$");
+        }
         var matcher = pattern.matcher(textForRegularExpression.getTextForRegularExpression());
 
         if (isPrettyOutputRequired) {
-            return matcher.find() ? "Найдено совпадение: " + matcher.group(groupNumber) : "Совпадения не найдено";
+            return matcher.find() ? String.format("Найдено совпадение: '%s'", matcher.group(groupNumber)) : "Совпадения не найдено";
         }
         return matcher.find() ? matcher.group(groupNumber) : "";
     }
