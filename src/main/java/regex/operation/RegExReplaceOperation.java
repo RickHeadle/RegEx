@@ -1,5 +1,6 @@
 package regex.operation;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import regex.entity.RegEx;
 import regex.entity.TextForRegEx;
@@ -9,11 +10,16 @@ import java.util.regex.Pattern;
 
 import static regex.operation.RegExFindOperation.find;
 
+@Slf4j
 public class RegExReplaceOperation {
 
     private static final String FIND_GROUP_NUMBER_WITH_UPPERCASE = "\\\\U[\\\\$](\\d)\\\\E";
     private static final String FIND_GROUP_NUMBER_WITH_LOWERCASE = "\\\\L[\\\\$](\\d)\\\\E";
     private static final String REPLACE_IN_GROUP_CONSTRUCTION = "\\$1";
+
+    private RegExReplaceOperation() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static int getCaseChangingGroupNumber(RegEx replaceRegularExpression,
                                                   boolean isUpperCaseOperation) {
@@ -192,7 +198,7 @@ public class RegExReplaceOperation {
 
     public static RegEx getRegularExpressionFromConsole() {
         var scanner = new Scanner(System.in);
-        System.out.println("Введите регулярное выражение: ");
+        log.info("Введите регулярное выражение: ");
         return new RegEx(scanner.nextLine());
     }
 
