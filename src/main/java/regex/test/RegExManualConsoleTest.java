@@ -8,13 +8,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 @Slf4j
-public class RegExManualConsoleTest {
+class RegExManualConsoleTest {
 
     public static void main(String[] args) {
         checkFromConsole();
     }
 
-    public static void checkFromConsole() {
+    private static void checkFromConsole() {
         var scanner = new Scanner(System.in);
         log.info("Введите номер операции для проверки: ");
         log.info("1 - Поиск");
