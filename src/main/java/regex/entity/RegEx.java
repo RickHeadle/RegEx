@@ -1,4 +1,4 @@
-package com.company.regex.entity;
+package regex.entity;
 
 public class RegEx {
     private String regularExpression;

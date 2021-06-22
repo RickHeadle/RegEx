@@ -1,14 +1,13 @@
-package com.company.regex.test;
+package regex.test;
 
-import com.company.regex.entity.RegEx;
-import com.company.regex.entity.TextForRegEx;
-import com.company.regex.operation.RegExFindOperation;
-import com.company.regex.operation.RegExReplaceOperation;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import regex.entity.RegEx;
+import regex.entity.TextForRegEx;
+import regex.operation.RegExFindOperation;
+import regex.operation.RegExReplaceOperation;
 
 import java.util.Scanner;
-
-import static org.junit.Assert.assertEquals;
 
 public class RegExTest {
     private static final RegEx SEARCH_REGULAR_EXPRESSION_EXAMPLE = new RegEx("^\\[?(\\w{5})(?:\\-{1,5})(\\d{3,4})\\]?");
@@ -35,7 +34,7 @@ public class RegExTest {
 
     @Test
     public void checkFind() {
-        assertEquals("Найдено совпадение: [rOrkO---2482",
+        Assertions.assertEquals("Найдено совпадение: [rOrkO---2482",
                 RegExFindOperation.find(
                         SEARCH_REGULAR_EXPRESSION_EXAMPLE,
                         TEXT_FOR_REG_EX_EXAMPLE));
@@ -43,7 +42,7 @@ public class RegExTest {
 
     @Test
     public void checkReplaceToLowerCase() {
-        assertEquals("[rorko-2482] Рефакторинг автоскролла bfb7dbcf",
+        Assertions.assertEquals("[rorko-2482] Рефакторинг автоскролла bfb7dbcf",
                 RegExReplaceOperation.replace(
                         SEARCH_REGULAR_EXPRESSION_EXAMPLE,
                         TEXT_FOR_REG_EX_EXAMPLE,
@@ -54,7 +53,7 @@ public class RegExTest {
 
     @Test
     public void checkReplaceToUpperCase() {
-        assertEquals("[RORKO-2482] Рефакторинг автоскролла bfb7dbcf",
+        Assertions.assertEquals("[RORKO-2482] Рефакторинг автоскролла bfb7dbcf",
                 RegExReplaceOperation.replace(
                         SEARCH_REGULAR_EXPRESSION_EXAMPLE,
                         TEXT_FOR_REG_EX_EXAMPLE,

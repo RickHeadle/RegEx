@@ -1,4 +1,4 @@
-package com.company.regex.entity;
+package regex.entity;
 
 import java.util.Scanner;
 

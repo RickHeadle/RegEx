@@ -1,13 +1,13 @@
-package com.company.regex.operation;
+package regex.operation;
 
-import com.company.regex.entity.RegEx;
-import com.company.regex.entity.TextForRegEx;
 import org.jetbrains.annotations.NotNull;
+import regex.entity.RegEx;
+import regex.entity.TextForRegEx;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-import static com.company.regex.operation.RegExFindOperation.find;
+import static regex.operation.RegExFindOperation.find;
 
 public class RegExReplaceOperation {
 
@@ -67,7 +67,7 @@ public class RegExReplaceOperation {
                                            TextForRegEx textForRegularExpression,
                                            RegEx replaceRegularExpression,
                                            boolean isUpperCaseOperation) {
-        //Выполнить скрипт на тексте и получить группу, в которой необходим верхний/нижний регистр
+        //Выполнить рег.выражение на тексте и получить группу, в которой необходим верхний/нижний регистр
         //+ преобразовать полученную группу в верхний/нижний регистр
         String groupTextForCaseTransit =
                 find(

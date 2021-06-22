@@ -1,7 +1,7 @@
-package com.company.regex.operation;
+package regex.operation;
 
-import com.company.regex.entity.RegEx;
-import com.company.regex.entity.TextForRegEx;
+import regex.entity.RegEx;
+import regex.entity.TextForRegEx;
 
 import java.util.regex.Pattern;
 
