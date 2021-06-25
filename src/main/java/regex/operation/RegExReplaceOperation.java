@@ -198,7 +198,7 @@ public class RegExReplaceOperation {
 
     static String prettyOutputGenerator(String text, boolean isPrettyOutputRequired) {
         if (isPrettyOutputRequired) {
-            return !text.isBlank() ? "Новая строка: " + text : "Совпадения не найдено";
+            return text.isBlank() ? "Совпадения не найдено" : "Новая строка: " + text;
         } else {
             return text;
         }
@@ -233,7 +233,12 @@ public class RegExReplaceOperation {
         }
         for (byte iteration = 1; iteration < operationNumber; iteration++) {
             //TODO: Внимание, вопрос - а как мы можем написать на эту операцию unit-test?
-            result = new StringBuilder(replace(RegExFindOperation.getRegularExpressionForSearchFromConsole(), new TextForRegEx(result.toString()), getRegularExpressionForReplaceFromConsole(), false));
+            result = new StringBuilder(
+                    replace(
+                            RegExFindOperation.getRegularExpressionForSearchFromConsole(),
+                            new TextForRegEx(result.toString()),
+                            getRegularExpressionForReplaceFromConsole(),
+                            false));
             if (isPrettyOutputRequired) {
                 log.info(String.format("Итерация №%s.", iteration));
                 log.info(String.format(RESULT_INFO, result));
@@ -242,6 +247,10 @@ public class RegExReplaceOperation {
         if (!isPrettyOutputRequired) {
             log.info(String.format(RESULT_INFO, result));
         }
+        /*Текущая реализация отталикивается от получения новых рег. выражений из консоли.
+         * Это не совсем хорошо, но другого решения пока не могу придумать.
+         * Возможно, стоит пока оставить эту задачу и подготовить небольшой интерфейс.
+         * Тогда мы сможем брать новые рег. выражения оттуда*/
     }
 
     public static RegEx getRegularExpressionForReplaceFromConsole() {
