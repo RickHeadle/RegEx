@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import regex.entity.RegEx;
 import regex.entity.TextForRegEx;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import static regex.operation.RegExFindOperation.find;
@@ -189,9 +190,9 @@ public class RegExReplaceOperation {
 
     public static String replaceFromConsole() {
         return replace(
-                RegEx.getRegularExpressionFromConsole(),
+                RegExFindOperation.getRegularExpressionForSearchFromConsole(),
                 TextForRegEx.getTextForRegExFromConsole(),
-                RegEx.getRegularExpressionFromConsole()
+                getRegularExpressionForReplaceFromConsole()
         );
     }
 
@@ -205,5 +206,47 @@ public class RegExReplaceOperation {
 
     public static boolean isUpperCaseGroupInReplaceRegEx(String replaceRegularExpression) {
         return isUpperCaseGroupInReplaceRegEx(new RegEx(replaceRegularExpression));
+    }
+
+    public static void replaceMultipleTimes(RegEx searchRegularExpression,
+                                            TextForRegEx textForRegularExpression,
+                                            RegEx replaceRegularExpression,
+                                            byte operationNumber,
+                                            boolean isPrettyOutputRequired) {
+        final var RESULT_INFO = "Результат: %s";
+        /*Нам нужно проверить возможность выполнения нескольких последовательных операций замены
+        Пока просто мысли вслух, проработаем алгоритм.
+        Мы должны получать все те же данные, что и для обычной замены
+        Текст для замены будет браться из предыдущей итерации*/
+        if (operationNumber < 1) {
+            throw new IllegalArgumentException("Получено недопустимое значение числа итераций для операции замены");
+        }
+        var result = new StringBuilder(
+                replace(
+                        searchRegularExpression,
+                        textForRegularExpression,
+                        replaceRegularExpression,
+                        false));
+        if (isPrettyOutputRequired) {
+            log.info("Итерация №0.");
+            log.info(String.format(RESULT_INFO, result));
+        }
+        for (byte iteration = 1; iteration < operationNumber; iteration++) {
+            //TODO: Внимание, вопрос - а как мы можем написать на эту операцию unit-test?
+            result = new StringBuilder(replace(RegExFindOperation.getRegularExpressionForSearchFromConsole(), new TextForRegEx(result.toString()), getRegularExpressionForReplaceFromConsole(), false));
+            if (isPrettyOutputRequired) {
+                log.info(String.format("Итерация №%s.", iteration));
+                log.info(String.format(RESULT_INFO, result));
+            }
+        }
+        if (!isPrettyOutputRequired) {
+            log.info(String.format(RESULT_INFO, result));
+        }
+    }
+
+    public static RegEx getRegularExpressionForReplaceFromConsole() {
+        var scanner = new Scanner(System.in);
+        log.info("Введите регулярное выражение для замены: ");
+        return new RegEx(scanner.nextLine());
     }
 }
