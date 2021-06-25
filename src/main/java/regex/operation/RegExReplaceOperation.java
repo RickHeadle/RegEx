@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 import regex.entity.RegEx;
 import regex.entity.TextForRegEx;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import static regex.operation.RegExFindOperation.find;
@@ -190,16 +189,10 @@ public class RegExReplaceOperation {
 
     public static String replaceFromConsole() {
         return replace(
-                getRegularExpressionFromConsole(),
+                RegEx.getRegularExpressionFromConsole(),
                 TextForRegEx.getTextForRegExFromConsole(),
-                getRegularExpressionFromConsole()
+                RegEx.getRegularExpressionFromConsole()
         );
-    }
-
-    public static RegEx getRegularExpressionFromConsole() {
-        var scanner = new Scanner(System.in);
-        log.info("Введите регулярное выражение: ");
-        return new RegEx(scanner.nextLine());
     }
 
     static String prettyOutputGenerator(String text, boolean isPrettyOutputRequired) {

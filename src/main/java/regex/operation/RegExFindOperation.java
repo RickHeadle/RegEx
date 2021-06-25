@@ -14,7 +14,7 @@ public class RegExFindOperation {
     }
 
     public static String findFromConsole() {
-        return find(RegExReplaceOperation.getRegularExpressionFromConsole(), TextForRegEx.getTextForRegExFromConsole());
+        return find(RegEx.getRegularExpressionFromConsole(), TextForRegEx.getTextForRegExFromConsole());
     }
 
     public static String find(String regularExpression, String textForRegularExpression) {
