@@ -1,4 +1,4 @@
-package regex.test;
+package regex.entity;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import regex.entity.RegEx;
-import regex.entity.TextForRegEx;
 import regex.operation.RegExFindOperation;
 import regex.operation.RegExReplaceOperation;
 

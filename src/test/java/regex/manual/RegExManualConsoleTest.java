@@ -1,4 +1,4 @@
-package regex.test;
+package regex.manual;
 
 import lombok.extern.slf4j.Slf4j;
 import regex.entity.TextForRegEx;
