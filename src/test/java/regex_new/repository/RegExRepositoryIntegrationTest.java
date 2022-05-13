@@ -4,27 +4,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.ConfigDataApplicationContextInitializer;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.springframework.test.context.web.WebAppConfiguration;
-import regex_new.config.RegExTestConfig;
+import org.springframework.transaction.annotation.Transactional;
+import regex_new.RegExServiceApplication;
 import regex_new.entity.RegEx;
 
-//@EnableAutoConfiguration
-@SpringJUnitConfig(
-        classes = RegExTestConfig.class,
-        initializers = ConfigDataApplicationContextInitializer.class
-)
+@Transactional
 @ActiveProfiles("dev")
 @ExtendWith(SpringExtension.class)
-@WebAppConfiguration
-@EnableJpaRepositories
-/*@SpringBootTest(
-        classes = RegExConfig.class
-)*/
+@SpringBootTest(classes = RegExServiceApplication.class)
 class RegExRepositoryIntegrationTest {
 
     @Autowired
