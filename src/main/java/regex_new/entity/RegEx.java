@@ -4,13 +4,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-@Component
 @NoArgsConstructor
 @Table(name = "T_REGULAR_EXPRESSIONS")
 public class RegEx {
