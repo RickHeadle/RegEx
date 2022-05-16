@@ -14,7 +14,7 @@
     <name>RegEx</name>
     <description>Regular expression project for Spring Boot</description>
     <properties>
-        <java.version>14</java.version>
+        <java.version>17</java.version>
         <sonar.projectKey>RickHeadle_RegEx</sonar.projectKey>
         <sonar.organization>rickheadle-github</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
