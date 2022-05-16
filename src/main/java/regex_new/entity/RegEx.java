@@ -17,7 +17,7 @@ public class RegEx {
     @Id
     @NonNull
     @Column(name = "ID", unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
