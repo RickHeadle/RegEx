@@ -12,7 +12,7 @@ import regex_new.RegExServiceApplication;
 import regex_new.entity.RegEx;
 
 @Transactional
-@ActiveProfiles("dev")
+@ActiveProfiles(value = "dev")
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = RegExServiceApplication.class)
 class RegExRepositoryIntegrationTest {
