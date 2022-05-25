@@ -4,17 +4,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Transactional;
-import regex_new.RegExServiceApplication;
 import regex_new.entity.RegEx;
 
-@Transactional
+@DataJpaTest
 @ActiveProfiles(value = "dev")
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = RegExServiceApplication.class)
 class RegExRepositoryIntegrationTest {
 
     @Autowired

@@ -26,8 +26,8 @@ public class RegExServiceApplication {
     public static class HelloController {
 
         @GetMapping("/hello")
-        public Object whoAmI(Principal principal) {
-            return principal;
+        public String whoAmI(Principal principal) {
+            return principal.getName();
         }
 
     }
