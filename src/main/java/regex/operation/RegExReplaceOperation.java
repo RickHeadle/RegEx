@@ -232,7 +232,6 @@ public class RegExReplaceOperation {
             log.info(String.format(RESULT_INFO, result));
         }
         for (byte iteration = 1; iteration < operationNumber; iteration++) {
-            //TODO: Внимание, вопрос - а как мы можем написать на эту операцию unit-test?
             result = new StringBuilder(
                     replace(
                             RegExFindOperation.getRegularExpressionForSearchFromConsole(),
