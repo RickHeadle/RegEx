@@ -23,6 +23,11 @@ public class UserRole implements GrantedAuthority {
     private Long id;
 
     @NonNull
+    @Column(name = "ROLE_CODE")
+    @Enumerated(EnumType.STRING)
+    private RoleCode roleCode;
+
+    @NonNull
     @Column(name = "ROLE_NAME")
     private String roleName;
 
@@ -33,5 +38,25 @@ public class UserRole implements GrantedAuthority {
     @Override
     public String getAuthority() {
         return getRoleName();
+    }
+
+    public enum RoleCode {
+
+        /**
+         * Администратор.
+         */
+        ROLE_ADMIN("admin"),
+
+        /**
+         * Пользователь.
+         */
+        ROLE_USER("user");
+
+        @Getter
+        private final String roleCode;
+
+        RoleCode(String roleCode) {
+            this.roleCode = roleCode;
+        }
     }
 }
