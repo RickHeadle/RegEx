@@ -15,7 +15,7 @@ import java.util.Optional;
 @DataJpaTest
 @ActiveProfiles(value = "dev")
 @ExtendWith(SpringExtension.class)
-class RegExRepositoryIntegrationTest {
+class RegExRepositoryUnitTest {
 
     @Autowired
     private RegExRepository regExRepository;

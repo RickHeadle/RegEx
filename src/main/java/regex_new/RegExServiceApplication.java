@@ -1,7 +1,6 @@
 package regex_new;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,6 @@ public class RegExServiceApplication {
                 .run(args);
     }
 
-    @Slf4j
     @RestController
     @AllArgsConstructor
     public static class HelloController {
