@@ -1,23 +1,16 @@
 package regex_new.specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import regex_new.entity.RegEx;
 
 @Component
+@NoArgsConstructor
 public class RegExSpecification implements Specification<RegEx> {
 
-    private String regularExpression;
-    private String description;
-
-
-    private RegExSpecification() {
-
-    }
+  private String regularExpression;
+  private String description;
 
     /*public static Specification<RegEx> regularExpressionLike(String regularExpression) {
         return (root, query, criteriaBuilder) -> {
@@ -25,9 +18,11 @@ public class RegExSpecification implements Specification<RegEx> {
         };
     }*/
 
-    @Override
-    public Predicate toPredicate(Root<RegEx> root, CriteriaQuery<?> query,
-        CriteriaBuilder criteriaBuilder) {
-        return null;
-    }
+  @Override
+  public javax.persistence.criteria.Predicate toPredicate(
+      javax.persistence.criteria.Root<RegEx> root,
+      javax.persistence.criteria.CriteriaQuery<?> query,
+      javax.persistence.criteria.CriteriaBuilder criteriaBuilder) {
+    return null;
+  }
 }

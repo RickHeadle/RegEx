@@ -2,6 +2,8 @@ package regex_new.controller;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import regex_new.disassembler.RegExDtoDisassembler;
 import regex_new.dto.RegExDto;
 import regex_new.model.RegExModel;
 import regex_new.service.RegExServiceImpl;
+import regex_new.specification.RegExSpecification;
 
 @RestController
 public class RegExController {
@@ -28,13 +31,15 @@ public class RegExController {
   @Autowired
   private RegExDtoDisassembler regExDtoDisassembler;
 
-/*  @GetMapping("/regex/all")
-  public ResponseEntity<PagedModel<RegExModel>> findAll(Specification<RegEx> specification,
-      @PageableDefault(sort = RegEx_.) Pageable pageable) {
+  @GetMapping("/regex/all")
+  public ResponseEntity<PagedModel<RegExModel>> findAll(RegExSpecification specification,
+      Pageable pageable) {
     return Optional.of(specification)
         .map(spec -> regExService.findAll(spec, pageable))
-        .map()
-  }*/
+        .map(regExModelAssembler::toPagedModel)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.noContent().build());
+  }
 
   @GetMapping("/regex/{id}")
   public ResponseEntity<RegExModel> findById(@PathVariable Long id) {

@@ -1,14 +1,18 @@
 package regex_new.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Getter
@@ -21,7 +25,7 @@ public class RegEx implements Serializable {
     @Id
     @NonNull
     @Column(name = "ID", unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
