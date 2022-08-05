@@ -7,6 +7,7 @@ import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -61,7 +62,17 @@ public class RegExController {
   }
 
   @PutMapping("/regex/update")
-  public ResponseEntity<RegExModel> update(@RequestBody RegExDto regExDto) {
+  public ResponseEntity<RegExModel> updateByPut(@RequestBody RegExDto regExDto) {
+    return Optional.of(regExDto)
+        .map(regExDtoDisassembler::toEntity)
+        .map(regExService::save)
+        .map(regExModelAssembler::toModel)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.badRequest().build());
+  }
+
+  @PatchMapping("/regex/update")
+  public ResponseEntity<RegExModel> updateByPatch(@RequestBody RegExDto regExDto) {
     return Optional.of(regExDto)
         .map(regExDtoDisassembler::toEntity)
         .map(regExService::save)
@@ -78,12 +89,12 @@ public class RegExController {
         .orElse(ResponseEntity.noContent().build());
   }
 
-  @DeleteMapping("/regex/delete")
+/*  @DeleteMapping("/regex/delete")
   public ResponseEntity<Long> deleteByDto(@RequestBody RegExDto regExDto) {
     return Optional.of(regExDto)
         .map(regExDtoDisassembler::toEntity)
         .map(regExService::deleteByEntity)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.noContent().build());
-  }
+  }*/
 }

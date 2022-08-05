@@ -7,17 +7,17 @@ import regex_new.entity.RegEx;
 @Component
 public class RegExDtoDisassembler {
 
-    public RegEx toEntity(RegExDto dto) {
-        return assemble(new RegEx(), dto);
-    }
+  public RegEx toEntity(RegExDto dto) {
+    return assemble(new RegEx(), dto);
+  }
 
-    private RegEx assemble(RegEx entity, RegExDto dto) {
-        if (dto.getId() != null) {
-            entity.setId(dto.getId());
-        }
-        entity.setDescription(dto.getDescription());
-        entity.setRegularExpression(dto.getRegularExpression());
-
-        return entity;
+  private RegEx assemble(RegEx entity, RegExDto dto) {
+    if (dto.getId() != null) {
+      entity.setId(dto.getId());
     }
+    entity.setDescription(dto.getDescription());
+    entity.setRegularExpression(dto.getRegularExpression());
+
+    return entity;
+  }
 }

@@ -60,25 +60,6 @@
                         <target>17</target>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <artifactId>build-helper-maven-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <configuration>
-                                <sources>
-                                    <source>target/generated-sources/annotations</source>
-                                </sources>
-                            </configuration>
-                            <goals>
-                                <goal>add-source</goal>
-                            </goals>
-                            <id>add-source</id>
-                            <phase>generate-sources</phase>
-                        </execution>
-                    </executions>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <version>3.3.0</version>
-                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -299,10 +280,16 @@
             <artifactId>spring-beans</artifactId>
             <version>5.3.20</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas -->
+        <dependency>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <version>2.7.2</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas -->
         <dependency>
-            <groupId>org.springframework.hateoas</groupId>
             <artifactId>spring-hateoas</artifactId>
+            <groupId>org.springframework.hateoas</groupId>
             <version>1.5.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure -->
@@ -323,6 +310,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
             <version>2.7.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <artifactId>jackson-core</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <version>2.13.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <artifactId>jackson-databind</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <version>2.13.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <artifactId>jackson-annotations</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <version>2.13.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
         <dependency>

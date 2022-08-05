@@ -1,17 +1,25 @@
 package regex_new.dto;
 
+import javax.persistence.Id;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 @Data
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class RegExDto extends RepresentationModel<RegExDto> {
 
+    private static final long serialVersionUID = 1L;
+
     /**
-     * Уникальный идентификатор регулярного выражения. <br>
-     * Не заполняется только в случае <b>создания</b> новой записи.
+     * Уникальный идентификатор регулярного выражения. <br> Не заполняется только в случае
+     * <b>создания</b> новой записи.
      */
+    @Id
     @Nullable
     private Long id;
 

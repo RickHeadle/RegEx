@@ -12,11 +12,12 @@ public class RegExSpecification implements Specification<RegEx> {
   private String regularExpression;
   private String description;
 
-    /*public static Specification<RegEx> regularExpressionLike(String regularExpression) {
-        return (root, query, criteriaBuilder) -> {
-            return criteriaBuilder.like(root.get(RegEx_.regularExpression), regularExpression);
-        };
-    }*/
+  public static Specification<RegEx> regularExpressionLike(String regularExpression) {
+    return (root, query, criteriaBuilder) -> {
+//            return criteriaBuilder.like(root.get(RegEx_.REGULAR_EXPRESSION), regularExpression);
+      return null;
+    };
+  }
 
   @Override
   public javax.persistence.criteria.Predicate toPredicate(
