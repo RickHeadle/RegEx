@@ -89,12 +89,4 @@ public class RegExController {
         .orElse(ResponseEntity.noContent().build());
   }
 
-/*  @DeleteMapping("/regex/delete")
-  public ResponseEntity<Long> deleteByDto(@RequestBody RegExDto regExDto) {
-    return Optional.of(regExDto)
-        .map(regExDtoDisassembler::toEntity)
-        .map(regExService::deleteByEntity)
-        .map(ResponseEntity::ok)
-        .orElse(ResponseEntity.noContent().build());
-  }*/
 }
