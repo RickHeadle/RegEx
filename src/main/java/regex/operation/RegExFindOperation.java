@@ -1,11 +1,14 @@
 package regex.operation;
 
+import lombok.extern.slf4j.Slf4j;
 import regex.entity.RegEx;
 import regex.entity.TextForRegEx;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+@Slf4j
 public class RegExFindOperation {
 
     protected RegExFindOperation() {
@@ -14,7 +17,7 @@ public class RegExFindOperation {
     }
 
     public static String findFromConsole() {
-        return find(RegEx.getRegularExpressionFromConsole(), TextForRegEx.getTextForRegExFromConsole());
+        return find(getRegularExpressionForSearchFromConsole(), TextForRegEx.getTextForRegExFromConsole());
     }
 
     public static String find(String regularExpression, String textForRegularExpression) {
@@ -58,4 +61,9 @@ public class RegExFindOperation {
         return find(new RegEx(regularExpression), new TextForRegEx(textForRegularExpression), isPrettyOutputRequired);
     }
 
+    public static RegEx getRegularExpressionForSearchFromConsole() {
+        var scanner = new Scanner(System.in);
+        log.info("Введите регулярное выражение для поиска: ");
+        return new RegEx(scanner.nextLine());
+    }
 }

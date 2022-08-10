@@ -12,18 +12,18 @@ public class RegEx {
         this.regularExpression = regularExpression;
     }
 
-    public static RegEx getRegularExpressionFromConsole() {
-        var scanner = new Scanner(System.in);
-        log.info("Введите регулярное выражение: ");
-        return new RegEx(scanner.nextLine());
-    }
-
     public String getRegularExpression() {
         return regularExpression;
     }
 
     public void setRegularExpression(String regularExpression) {
         this.regularExpression = regularExpression;
+    }
+
+    public static RegEx getRegularExpressionFromConsole() {
+        var scanner = new Scanner(System.in);
+        log.info("Введите регулярное выражение:");
+        return new RegEx(scanner.nextLine());
     }
 
 }
