@@ -61,6 +61,7 @@ public class RegExController {
         .orElse(ResponseEntity.badRequest().build());
   }
 
+  //TODO: переписать под изменение по ID
   @PutMapping("/regex/update")
   public ResponseEntity<RegExModel> updateByPut(@RequestBody RegExDto regExDto) {
     return Optional.of(regExDto)

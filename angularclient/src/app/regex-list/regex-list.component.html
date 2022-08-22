@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <title>regex-list</title>
+</head>
+<body>
+<!--  <p>regex-list works!</p>-->
+<div>
+  <form>
+    <section>
+      <div>
+        <!--<table class="table table-hover table-bordered table-striped">
+          <caption>Regular Expression Table View</caption>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Regular Expression</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let regex of data; let i = index">
+
+            </ng-container>
+          </tbody>
+        </table>-->
+        <table [dataSource]="dataSource" mat-table>
+          <!-- ID Column -->
+          <ng-container matColumnDef="position">
+
+          </ng-container>
+
+        </table>
+      </div>
+    </section>
+  </form>
+</div>
+</body>

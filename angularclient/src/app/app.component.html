@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <title>First version of RegEx project webpage!</title>
+  <meta content="A very first version of out brand new RegEx webpage!" name="description">
+  <meta content="Rick Headle (Alexey Efimov)" name="author">
+  <meta content="regex,regular,expression,java,project" name="keywords">
+
+  <meta content="First version of RegEx project webpage!" property="og:title">
+  <meta content="website" property="og:type">
+  <meta content="http://localhost:8080" property="og:url">
+  <meta content="A very first version of out brand new RegEx webpage!" property="og:description">
+  <!--  <meta property="og:image" content="image.png">-->
+
+  <link href="/favicon.ico" rel="icon">
+  <!--  <link rel="icon" href="/favicon.svg" type="image/svg+xml">-->
+  <!--  <link rel="apple-touch-icon" href="/apple-touch-icon.png">-->
+
+  <link href="app.component.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<!--   Navbar -->
+<!--<div class="regex-top">
+  &lt;!&ndash; All kind of CSS voodoo... &ndash;&gt;
+</div>-->
+<!-- Page content -->
+<div>
+  <!-- Initial text input -->
+  <form>
+    <section>
+      <div>
+        <label for="initial-text-input-field">Text input:</label>
+        <textarea cols="30" id="initial-text-input-field" name="initial-text-input-field"
+                  rows="10"></textarea>
+      </div>
+      <div>
+        <label for="regex-input-field">Regular expression:</label>
+        <input id="regex-input-field" name="regex-input-field" type="text">
+        <button id="regex-submit-button" name="regex-submit-button" type="submit">Submit</button>
+      </div>
+      <div>
+        <label for="result-text-output-field">Text output:</label>
+        <textarea cols="30" id="result-text-output-field" name="result-text-output-field"
+                  rows="10"></textarea>
+        <button id="result-text-copy-button" name="result-text-copy-button" type="button">Copy to
+          the clipboard
+        </button>
+      </div>
+    </section>
+  </form>
+</div>
+
+<script src="js/scripts.js"></script>
+</body>
