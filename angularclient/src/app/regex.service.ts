@@ -6,7 +6,7 @@ import {RegEx} from "./regex";
 @Injectable({
   providedIn: 'root'
 })
-export class RegexService {
+export class RegExService {
 
   private baseUrl = "http://localhost:8080/regex"
 

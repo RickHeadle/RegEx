@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RegexService} from "../regex.service";
+import {RegExService} from "../regex.service";
 import {Router} from "@angular/router";
 import {RegEx} from "../regex";
 
@@ -12,7 +12,7 @@ export class RegexListComponent implements OnInit {
 
   regExArray: RegEx[] | undefined;
 
-  constructor(private regExService: RegexService,
+  constructor(private regExService: RegExService,
               private router: Router) {
   }
 
