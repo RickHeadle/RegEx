@@ -6,7 +6,7 @@ import org.springframework.hateoas.RepresentationModel;
 
 @Data
 @NoArgsConstructor
-public class RegExModel extends RepresentationModel<RegExModel> {
+public class RegExInfoModel extends RepresentationModel<RegExInfoModel> {
     private Long id;
     private String regularExpression;
     private String description;

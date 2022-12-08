@@ -128,13 +128,6 @@
             <version>5.9.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>4.9.0</version>
-            <scope>test</scope>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
         <dependency>
             <groupId>org.mockito</groupId>
@@ -186,8 +179,8 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
         <dependency>
-            <artifactId>jboss-logging</artifactId>
             <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
             <version>3.5.0.Final</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
@@ -204,21 +197,21 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
         <dependency>
-            <artifactId>jaxb-api</artifactId>
             <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
             <version>2.4.0-b180830.0359</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api -->
         <dependency>
-            <artifactId>jakarta.xml.bind-api</artifactId>
             <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
             <version>4.0.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
         <dependency>
-            <artifactId>jaxb-runtime</artifactId>
             <groupId>org.glassfish.jaxb</groupId>
-            <version>4.0.0</version>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
         <dependency>
@@ -228,8 +221,8 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-jpamodelgen -->
         <dependency>
-            <artifactId>hibernate-jpamodelgen</artifactId>
             <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
             <version>6.1.5.Final</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-annotations -->
@@ -353,7 +346,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.8.0</version>
+            <version>4.9.0</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
