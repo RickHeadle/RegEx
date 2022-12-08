@@ -1,23 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {RegExService} from "./regex.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title: string;
-  data: any = [];
 
-  constructor(private regExService: RegExService) {
+  constructor() {
     this.title = 'Spring Boot - Angular Application';
   }
-
-  ngOnInit() {
-    this.regExService.getRegExList().subscribe((data: any[]) => {
-      this.data = data;
-    })
-  }
-
 }
