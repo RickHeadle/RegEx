@@ -14,6 +14,7 @@ public class RegExSpecification implements Specification<RegEx> {
 
   public static Specification<RegEx> regularExpressionLike(String regularExpression) {
     return (root, query, criteriaBuilder) -> {
+      //TODO: сгенерировать метамодели, чтобы строка ниже сработала
 //      return criteriaBuilder.like(root.get(RegEx_.REGULAR_EXPRESSION), regularExpression);
       return null;
     };
