@@ -4,7 +4,6 @@ import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -30,14 +29,13 @@ class RegExInfoRepositoryUnitTest {
 
   @Test
   void test_whenNoEntityFoundById_thenEmpty() {
-    Optional<RegExInfo> missingRegEx = regExInfoRepository.findById(ArgumentMatchers.anyLong());
-
+    Optional<RegExInfo> missingRegEx = regExInfoRepository.findById(-2L);
     Assertions.assertEquals(Optional.empty(), missingRegEx);
   }
 
   private RegExInfo createRegEx() {
     RegExInfo entity = new RegExInfo();
-    entity.setId(ArgumentMatchers.anyLong());
+    entity.setId(-1L);
     entity.setDescription("Тестовое регулярное выражение");
     entity.setRegularExpression(".*");
     return entity;
