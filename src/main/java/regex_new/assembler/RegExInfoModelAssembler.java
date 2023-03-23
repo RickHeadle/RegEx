@@ -10,30 +10,30 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
-import regex_new.controller.RegExController;
-import regex_new.entity.RegEx;
-import regex_new.model.RegExModel;
+import regex_new.controller.RegExInfoController;
+import regex_new.entity.RegExInfo;
+import regex_new.model.RegExInfoModel;
 
 @Component
-public class RegExModelAssembler extends RepresentationModelAssemblerSupport<RegEx, RegExModel> {
+public class RegExInfoModelAssembler extends RepresentationModelAssemblerSupport<RegExInfo, RegExInfoModel> {
 
   @Autowired
-  private PagedResourcesAssembler<RegEx> pagedResourcesAssembler;
+  private PagedResourcesAssembler<RegExInfo> pagedResourcesAssembler;
 
-  public RegExModelAssembler() {
-    super(RegExController.class, RegExModel.class);
+  public RegExInfoModelAssembler() {
+    super(RegExInfoController.class, RegExInfoModel.class);
   }
 
   @Override
-  public RegExModel toModel(RegEx entity) {
-    return assemble(new RegExModel(), entity);
+  public RegExInfoModel toModel(RegExInfo entity) {
+    return assemble(new RegExInfoModel(), entity);
   }
 
-  public PagedModel<RegExModel> toPagedModel(Page<RegEx> entity) {
+  public PagedModel<RegExInfoModel> toPagedModel(Page<RegExInfo> entity) {
     return pagedResourcesAssembler.toModel(entity, this);
   }
 
-  private RegExModel assemble(RegExModel model, RegEx entity) {
+  private RegExInfoModel assemble(RegExInfoModel model, RegExInfo entity) {
     model.setId(entity.getId());
     model.setRegularExpression(entity.getRegularExpression());
     model.setDescription(entity.getDescription());
@@ -44,7 +44,7 @@ public class RegExModelAssembler extends RepresentationModelAssemblerSupport<Reg
   }
 
   private Link getSelfLink(Long entityId) {
-    return linkTo(methodOn(RegExController.class).findById(entityId)).withSelfRel();
+    return linkTo(methodOn(RegExInfoController.class).findById(entityId)).withSelfRel();
   }
 
 }

@@ -2,16 +2,16 @@ package regex_new.disassembler;
 
 import org.springframework.stereotype.Component;
 import regex_new.dto.RegExDto;
-import regex_new.entity.RegEx;
+import regex_new.entity.RegExInfo;
 
 @Component
-public class RegExDtoDisassembler {
+public class RegExInfoDtoDisassembler {
 
-  public RegEx toEntity(RegExDto dto) {
-    return assemble(new RegEx(), dto);
+  public RegExInfo toEntity(RegExDto dto) {
+    return assemble(new RegExInfo(), dto);
   }
 
-  private RegEx assemble(RegEx entity, RegExDto dto) {
+  private RegExInfo assemble(RegExInfo entity, RegExDto dto) {
     if (dto.getId() != null) {
       entity.setId(dto.getId());
     }
