@@ -12,6 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import regex_new.entity.RegExInfo;
 import regex_new.repository.RegExInfoRepository;
 
@@ -37,30 +38,30 @@ public class RegExInfoServiceImpl implements RegExInfoService {
     Pattern pattern = Pattern.compile(regularExpression.getRegularExpression());
     Matcher matcher = pattern.matcher(text);
 
-    return matcher.results()
-        .map(MatchResult::group)
-        .toList();
+    return matcher.results().map(MatchResult::group).toList();
   }
 
   @Override
   public String replaceFirst(RegExInfo searchByRegEx, RegExInfo replaceByRegEx, String text) {
-    return text.replaceFirst(searchByRegEx.getRegularExpression(),
-        replaceByRegEx.getRegularExpression());
+    return text.replaceFirst(
+        searchByRegEx.getRegularExpression(), replaceByRegEx.getRegularExpression());
   }
 
   @Override
   public String replaceAll(RegExInfo searchByRegEx, RegExInfo replaceByRegEx, String text) {
-    return text.replaceAll(searchByRegEx.getRegularExpression(),
-        replaceByRegEx.getRegularExpression());
+    return text.replaceAll(
+        searchByRegEx.getRegularExpression(), replaceByRegEx.getRegularExpression());
   }
 
   @Override
-  public Page<RegExInfo> findAll(@Nullable Specification<RegExInfo> specification,
-      @NonNull Pageable pageable) {
+  @Transactional(readOnly = true)
+  public Page<RegExInfo> findAll(
+      @Nullable Specification<RegExInfo> specification, @NonNull Pageable pageable) {
     return regExInfoRepository.findAll(specification, pageable);
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Optional<RegExInfo> findById(@NonNull Long id) {
     return regExInfoRepository.findById(id);
   }

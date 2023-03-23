@@ -3,6 +3,7 @@ package regex_new.controller;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import regex_new.assembler.RegExInfoModelAssembler;
 import regex_new.disassembler.RegExInfoDtoDisassembler;
 import regex_new.dto.RegExDto;
+import regex_new.entity.RegExInfo;
 import regex_new.model.RegExInfoModel;
 import regex_new.service.RegExInfoServiceImpl;
-import regex_new.specification.RegExInfoSpecification;
 
 @RestController
 public class RegExInfoController {
@@ -33,8 +34,8 @@ public class RegExInfoController {
   private RegExInfoDtoDisassembler regExInfoDtoDisassembler;
 
   @GetMapping("/regex/all")
-  public ResponseEntity<PagedModel<RegExInfoModel>> findAll(RegExInfoSpecification specification,
-      Pageable pageable) {
+  public ResponseEntity<PagedModel<RegExInfoModel>> findAll(
+      Specification<RegExInfo> specification, Pageable pageable) {
     return Optional.of(specification)
         .map(spec -> regExService.findAll(spec, pageable))
         .map(regExInfoModelAssembler::toPagedModel)

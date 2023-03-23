@@ -54,4 +54,16 @@ public class RegExInfoServiceImplUnitTest {
     Assertions.assertEquals(3, regExService.findAll(regExInfo, testMessage).size());
   }
 
+  @Test
+  @DisplayName(value = "Проверка: не найдено ни одного паттерна - возвращаем пустое множество")
+  void whenMultiplePatternsNotFound_thenReturnEmptyList() {
+    String testMessage = "This is a test message.";
+    String regularExpression = "^This is a regular expression that won't work on a test message.$";
+    RegExInfo regExInfo = FakeRegExInfo.createRegEx(1L, regularExpression, "");
+
+    Executable executable = () -> regExService.findAll(regExInfo, testMessage);
+    Assertions.assertDoesNotThrow(executable);
+    Assertions.assertEquals(0, regExService.findAll(regExInfo, testMessage).size());
+  }
+
 }

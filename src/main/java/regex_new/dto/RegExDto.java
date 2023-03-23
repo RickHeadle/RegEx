@@ -1,6 +1,6 @@
 package regex_new.dto;
 
-import javax.persistence.Id;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
